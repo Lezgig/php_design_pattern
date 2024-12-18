@@ -1,16 +1,18 @@
 services:
   caddy:
+    container_name: caddy
     image: caddy
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./app:/var/www/html
+      - ./:/var/www/html
     depends_on:
       - php-fpm
 
   php-fpm:
+    container_name: php-fpm
     image: php:8.3-fpm
     volumes:
-      - ./app:/var/www/html
+      - ./:/var/www/html

@@ -1,5 +1,5 @@
 localhost:80 {
-	root * /var/www/html
+	root * /var/www/html/app
 	php_fastcgi php-fpm:9000
 	file_server
 }
